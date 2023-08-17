@@ -1,12 +1,19 @@
 import React from "react";
 import { View } from "react-native";
-import HookEffect from "./src/screens/HookEffect";
+import ContactUs from "./src/screens/ContactUs";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./src/screens/Home";
 
 const App = () => {
+  const Stack = createNativeStackNavigator();
   return (
-    <View>
-      <HookEffect />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={ContactUs} />
+        <Stack.Screen name="Home" component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
