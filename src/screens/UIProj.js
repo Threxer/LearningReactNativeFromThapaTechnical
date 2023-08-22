@@ -6,7 +6,7 @@
 // ()=>()
 
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 
@@ -21,27 +21,23 @@ const UIProj = () => {
 
   const nothing = () => {};
 
+  // const [walletId, setWalletId] = useState('');
+
   return (
     <View style={styles.mainScreen}>
       <View style={styles.topBar}>
         <Text style={styles.titleText}>Wallet</Text>
         <View style={styles.topButtons}>
-          <TouchableOpacity
-            style={[styles.brCommon, styles.headerIcon]}
-            onPress={nothing}
-          >
+          <TouchableOpacity style={styles.brCommon} onPress={nothing}>
             <Image
-              style={[styles.headIconImage, styles.brCommon]}
+              style={styles.headIconImage}
               source={require("../../assets/icons8-notification-96.png")}
               resizeMode="contain"
             />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.brCommon, styles.headerIcon]}
-            onPress={nothing}
-          >
+          <TouchableOpacity style={styles.brCommon} onPress={nothing}>
             <Image
-              style={[styles.headIconImage, styles.brCommon]}
+              style={styles.headIconImage}
               source={require("../../assets/icons8-user-96.png")}
               resizeMode="contain"
             />
@@ -50,96 +46,135 @@ const UIProj = () => {
       </View>
       <View style={styles.midScreen}>
         <Text style={styles.balTxt}>$23,867</Text>
-        <Text style={styles.walletTxt}>Wallet id:26789340480</Text>
+        <Text style={styles.walletTxt}>Wallet id:</Text>
         <View style={styles.midScreenIcons}>
           <TouchableOpacity style={styles.txnsIcon}>
             <Image
-              style={styles.coinImage}
-              source={require("../../assets/icons8-down-left-arrow-96.png")}
+              style={styles.txnsImg}
+              source={require("../../assets/down-left-arrow_8591505.png")}
               resizeMode="contain"
             />
           </TouchableOpacity>
           <TouchableOpacity style={styles.txnsIcon}>
             <Image
-              style={styles.coinImage}
-              source={require("../../assets/icons8-down-left-arrow-96.png")}
+              style={styles.txnsImg}
+              source={require("../../assets/up-right-arrow_8591645.png")}
               resizeMode="contain"
             />
           </TouchableOpacity>
           <TouchableOpacity style={styles.txnsIcon}>
             <Image
-              style={styles.coinImage}
-              source={require("../../assets/icons8-ethereum-128.png")}
+              style={styles.txnsImg}
+              source={require("../../assets/refresh_8618502.png")}
               resizeMode="contain"
             />
           </TouchableOpacity>
           <TouchableOpacity style={styles.txnsIcon}>
             <Image
-              style={styles.txnsIcon}
-              source={require("../../assets/icons8-ethereum-128.png")}
+              style={styles.txnsImg}
+              source={require("../../assets/plus_10233500.png")}
               resizeMode="contain"
             />
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.bottomScreen}>
-        <Text style={styles.boxTitleTxt}>My Assets</Text>
-        <View style={styles.mainCoin}>
-          <View>
-            <Image
-              style={styles.coinImage}
-              source={require("../../assets/icons8-ethereum-128.png")}
-              resizeMode="contain"
-            />
+      <View>
+        <View style={styles.bottomScreen}>
+          <View style={styles.boxTitle}>
+            <Text style={styles.boxTitleTxt}>My Assets</Text>
+            <Text style={styles.boxTitleTxt}>My Transactions</Text>
           </View>
-          <View style={styles.coinView}>
-            <View>
-              <Text style={styles.text1}>Ethereum</Text>
-              <Text style={styles.text2}>13.98%($28015)</Text>
+          <View style={styles.mainCoin}>
+            <View style={styles.littleCoin}>
+              <Image
+                style={styles.coinImage}
+                source={require("../../assets/icons8-ethereum-128.png")}
+                resizeMode="contain"
+              />
+              <View>
+                <Text style={styles.text1}>Ethereum</Text>
+                <Text style={styles.text2}>13.98% ($28015)</Text>
+              </View>
             </View>
-            <View>
-              <Text style={styles.text1}>69.844 ETH</Text>
-              <Text style={styles.text2}>$100,000.00</Text>
+            <View style={styles.coinView}>
+              <View>
+                <Text style={styles.text1}>69.844 ETH</Text>
+                <Text style={styles.text2}>$100,000.00</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.mainCoin}>
+            <View style={styles.littleCoin}>
+              <Image
+                style={styles.coinImage}
+                source={require("../../assets/Bnb.png")}
+                resizeMode="contain"
+              />
+              <View>
+                <Text style={styles.text1}>Binance</Text>
+                <Text style={styles.text2}>13.98% ($28015)</Text>
+              </View>
+            </View>
+            <View style={styles.coinView}>
+              <View>
+                <Text style={styles.text1}>69.844 BNB</Text>
+                <Text style={styles.text2}>$100,000.00</Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.mainCoin}>
+            <View style={styles.littleCoin}>
+              <Image
+                style={styles.coinImage}
+                source={require("../../assets/Tetherlogo.png")}
+                resizeMode="contain"
+              />
+              <View>
+                <Text style={styles.text1}>Tether USD</Text>
+                <Text style={styles.text2}>13.98% ($28015)</Text>
+              </View>
+            </View>
+            <View style={styles.coinView}>
+              <View>
+                <Text style={styles.text1}>69.844 ETH</Text>
+                <Text style={styles.text2}>$100,000.00</Text>
+              </View>
             </View>
           </View>
         </View>
-        <View>
-          <View>
+        <View style={styles.bottomIcons}>
+          <TouchableOpacity style={styles.bottomButtons}>
             <Image
-              style={styles.coinImage}
-              source={{
-                uri: "https://img.icons8.com/stickers/100/000000/about.png",
-              }}
+              style={styles.txnsImg}
+              source={require("../../assets/home.png")}
               resizeMode="contain"
             />
-          </View>
-          <View>
-            <Text style={styles.text1}>Binance</Text>
-            <Text style={styles.text2}>13.98%($28015)</Text>
-          </View>
-          <View>
-            <Text style={styles.text1}>69.844 ETH</Text>
-            <Text style={styles.text2}>$100,000.00</Text>
-          </View>
-        </View>
-        <View>
-          <View>
+            <Text>Home</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.bottomButtons}>
             <Image
-              style={styles.coinImage}
-              source={{
-                uri: "https://img.icons8.com/stickers/100/000000/about.png",
-              }}
+              style={styles.txnsImg}
+              source={require("../../assets/wallet.png")}
               resizeMode="contain"
             />
-          </View>
-          <View>
-            <Text style={styles.text1}>Tether USD</Text>
-            <Text style={styles.text2}>13.98%($28015)</Text>
-          </View>
-          <View>
-            <Text style={styles.text1}>69.844 ETH</Text>
-            <Text style={styles.text2}>$100,000.00</Text>
-          </View>
+            <Text>Wallet</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.bottomButtons}>
+            <Image
+              style={styles.txnsImg}
+              source={require("../../assets/pie-chart.png")}
+              resizeMode="contain"
+            />
+            <Text>Chart</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.bottomButtons}>
+            <Image
+              style={styles.txnsImg}
+              source={require("../../assets/settings.png")}
+              resizeMode="contain"
+            />
+            <Text>Settings</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -151,7 +186,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#d46740",
     // flex: "100%",
     paddingVertical: 10,
-    paddingHorizontal: 15,
+    paddingHorizontal: 8,
     width: "100%",
     height: "100%",
   },
@@ -162,6 +197,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingTop: 60,
     alignItems: "center",
+    paddingHorizontal: 10,
   },
   titleText: {
     fontSize: 25,
@@ -171,18 +207,25 @@ const styles = StyleSheet.create({
   },
   topButtons: {
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
   },
   brCommon: {
-    borderRadius: 50,
+    borderRadius: 45,
+    width: 45,
+    height: 45,
+    backgroundColor: "#feedd2",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 10,
   },
   headerIcon: {
     marginHorizontal: 5,
   },
   headIconImage: {
-    width: 43,
-    height: 40,
-    backgroundColor: "#feedd2",
+    width: 30,
+    height: 30,
+    justifyContent: "center",
+    alignItems: "center",
   },
   midScreen: {
     width: "100%",
@@ -205,40 +248,76 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: "#fffdfc",
   },
+  txnsImg: {
+    width: 26,
+    height: 26,
+  },
   txnsIcon: {
-    width: 60,
-    height: 60,
-    borderRadius: 60,
+    width: 75,
+    height: 75,
+    borderRadius: 75,
     backgroundColor: "#f0c46b",
+    justifyContent: "center",
+    alignItems: "center",
   },
   bottomScreen: {
     width: "100%",
-    height: "25%",
+    height: 360,
+    paddingTop: 5,
+    marginTop: 15,
     flexDirection: "column",
+    backgroundColor: "#eee",
+  },
+  boxTitle: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 40,
   },
   boxTitleTxt: {
-    fontSize: 35,
+    fontSize: 20,
   },
   mainCoin: {
     flexDirection: "row",
-
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
+    marginVertical: 30,
+    marginHorizontal: 10,
   },
-  // coinView: {
-  //   flexDirection: "row",
-  //   justifyContent: "space-between",
-  // },
+  littleCoin: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   coinImage: {
     width: 45,
     height: 45,
-    alignSelf: "flex-start",
+    marginHorizontal: 5,
+    borderRadius: 45,
   },
-  // text1: {
-  //   width: 1,
-  // },
-  // text2: {
-  //   width: 1,
-  // },
+  text1: {
+    fontWeight: "bold",
+    fontSize: 17,
+  },
+  text2: {
+    fontWeight: "500",
+    fontSize: 17,
+    color: "grey",
+  },
+  bottomIcons: {
+    flexDirection: "row",
+    backgroundColor: "#eee",
+    width: "100%",
+    height: 90,
+    borderColor: "grey",
+    borderWidth: 1,
+    paddingHorizontal: 25,
+    paddingVertical: 15,
+    justifyContent: "space-between",
+  },
+  bottomButtons: {
+    width: 60,
+    height: 60,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 
 export default UIProj;
